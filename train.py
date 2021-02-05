@@ -51,10 +51,8 @@ def trainDeepMultiOmics(train_x, train_age, train_ytime, train_yevent, eval_x, e
 				continue
 			if "sc1" in name:
 				continue
-			###stop sparse coding
 			if "sc4" in name:
 				break
-			
 			if "sc2" in name:
 				active_param = net_sc2_weight.mul(do_m1_grad_mask)
 			if "sc3" in name:
