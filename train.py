@@ -1,7 +1,5 @@
 import dgl
 import DeepMultiOmics
-from SubNetwork_SparseCoding import dropout_mask, s_mask
-from Survival_CostFunc_CIndex import R_set, neg_par_log_likelihood, c_index
 import torch
 import torch.optim as optim
 import copy
@@ -38,11 +36,7 @@ def trainDeepMultiOmics(train_x, train_age, train_ytime, train_yevent, eval_x, e
 		do_m2_grad_mask = torch.where(do_m2_grad == 0, do_m2_grad, torch.ones_like(do_m2_grad))
 		net_sc2_weight = copy.deepcopy(net.sc2.weight.data)
 		net_sc3_weight = copy.deepcopy(net.sc3.weight.data)
-
-
 		net_state_dict = net.state_dict()
-
-
 		copy_net = copy.deepcopy(net)
 		copy_state_dict = copy_net.state_dict()
 		for name, param in copy_state_dict.items():
