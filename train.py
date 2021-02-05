@@ -1,5 +1,5 @@
 import dgl
-from Model import DeepMultiOmics
+import DeepMultiOmics
 from SubNetwork_SparseCoding import dropout_mask, s_mask
 from Survival_CostFunc_CIndex import R_set, neg_par_log_likelihood, c_index
 import torch
