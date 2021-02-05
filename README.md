@@ -33,3 +33,8 @@ The multi-omics data are preprocessed into three sets of matrixes.
 3.methylations matrix 
 
 The shapes for them are genes * samples, which are inputs of the model.
+
+Train the model via the following:
+
+    cd DeepMultiOmics
+    python train.py 
