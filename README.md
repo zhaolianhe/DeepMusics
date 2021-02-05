@@ -11,7 +11,9 @@ Here we use several common cancer types to show how the framework was built and 
 To use DeepMultiOmics, do the following:
 
 1.Install the environment
+
 2.Prepare data
+
 3.Train and evaluate DeepMultiOmics
 
 ## Data
