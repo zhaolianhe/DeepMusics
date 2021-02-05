@@ -7,6 +7,7 @@ Here we use several common cancer types to show how the framework was built and 
 ##Data
 
 Pathway prior knowledge information is from the Molecular Signatures Database(MSigDB).
+
 Mutations,expressions,methlations,clinical information of all cancer types are from TCGA Database.
 
 ##Model
