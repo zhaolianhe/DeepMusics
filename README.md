@@ -7,13 +7,13 @@ Here we use several common cancer types to show how the framework was built and 
 
   Deep learning methods have been applied in bioinformatics because of their strong ability for capturing of nonlinear relationships, from their fitted trails and a flexible model design. 
   
-##Data
+## Data
 
 Pathway prior knowledge information is from the Molecular Signatures Database(MSigDB).
 
 Mutations,expressions,methlations,clinical information of all cancer types are from TCGA Database.
 
-##Model
+## Model
  
 The multi-omics data are preprocessed into three sets of matrixes.
 1.mutation matrix 
