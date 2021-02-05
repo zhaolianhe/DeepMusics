@@ -11,7 +11,7 @@ Here we use several common cancer types to show how the framework was built and 
 
 Pathway prior knowledge information is from the Molecular Signatures Database(MSigDB).
 
-Mutations,expressions,methlations,clinical information of all cancer types are from TCGA Database(https://www.tcga.org/).
+Mutations,expressions,methlations,clinical information of all cancer types are from TCGA Database(https://portal.gdc.cancer.gov/).
 
 ## Model
  
