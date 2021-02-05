@@ -6,7 +6,14 @@ Our goal is to use deep learning method to fit embedding from all kinds of omics
 Here we use several common cancer types to show how the framework was built and tested.
 
   Deep learning methods have been applied in bioinformatics because of their strong ability for capturing of nonlinear relationships, from their fitted trails and a flexible model design. 
-  
+
+## Install
+To use DeepMultiOmics, do the following:
+
+1.Install the environment
+2.Prepare data
+3.Train and evaluate DeepMultiOmics
+
 ## Data
 
 Pathway prior knowledge information is from the Molecular Signatures Database(MSigDB).
