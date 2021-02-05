@@ -1,5 +1,5 @@
 import dgl
-from Model import Cox_PASNet
+from Model import DeepMultiOmics
 from SubNetwork_SparseCoding import dropout_mask, s_mask
 from Survival_CostFunc_CIndex import R_set, neg_par_log_likelihood, c_index
 import torch
@@ -10,12 +10,12 @@ import numpy as np
 import pandas as pd
 dtype = torch.FloatTensor
 
-def trainCoxPASNet(train_x, train_age, train_ytime, train_yevent, \
+def trainDeepMultiOmics(train_x, train_age, train_ytime, train_yevent, \
 			eval_x, eval_age, eval_ytime, eval_yevent, pathway_mask, \
 			In_Nodes, Pathway_Nodes, Hidden_Nodes, Out_Nodes, \
 			Learning_Rate, L2, Num_Epochs, Dropout_Rate):
 	
-	net = Cox_PASNet(In_Nodes, Pathway_Nodes, Hidden_Nodes, Out_Nodes, pathway_mask)
+	net = DeepMultiOmics(In_Nodes, Pathway_Nodes, Hidden_Nodes, Out_Nodes, pathway_mask)
 
 	if torch.cuda.is_available():
 		net.cuda()
@@ -24,8 +24,7 @@ def trainCoxPASNet(train_x, train_age, train_ytime, train_yevent, \
 
 	for epoch in range(Num_Epochs+1):
 		net.train()
-		opt.zero_grad() ###reset gradients to zeros
-		###Randomize dropout masks
+		opt.zero_grad() 
 		net.do_m1 = dropout_mask(Pathway_Nodes, Dropout_Rate[0])
 		net.do_m2 = dropout_mask(Hidden_Nodes, Dropout_Rate[1])
 
@@ -53,7 +52,6 @@ def trainCoxPASNet(train_x, train_age, train_ytime, train_yevent, \
 
 			if not "weight" in name:
 				continue
-			###omit gene layer
 			if "sc1" in name:
 				continue
 			###stop sparse coding
