@@ -12,7 +12,7 @@ dtype = torch.FloatTensor
 
 def trainDeepMultiOmics(train_x, train_age, train_ytime, train_yevent, eval_x, eval_age, eval_ytime, eval_yevent, pathway_mask, In_Nodes, Pathway_Nodes, Hidden_Nodes, Out_Nodes, Learning_Rate, L2, Num_Epochs, Dropout_Rate):
 	
-	net = DeepMultiOmics(In_Nodes, Pathway_Nodes, Hidden_Nodes, Out_Nodes, pathway_mask)
+	net = DeepMultiOmics(In_Nodes,Pathway_Nodes,Hidden_Nodes,Out_Nodes,pathway_mask)
 
 	if torch.cuda.is_available():
 		net.cuda()
