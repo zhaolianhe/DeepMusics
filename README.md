@@ -25,8 +25,11 @@ Mutations,expressions,methlations,clinical information of all cancer types are f
 ## Model
  
 The multi-omics data are preprocessed into three sets of matrixes.
+
 1.mutation matrix 
+
 2.expression matrix
+
 3.methylations matrix 
 
 The shapes for them are genes * samples, which are inputs of the model.
