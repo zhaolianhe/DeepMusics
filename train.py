@@ -87,9 +87,9 @@ def trainDeepMultiOmics(train_x, train_age, train_ytime, train_yevent, eval_x, e
 			if "sc3" in name:
 				final_optimal_param_mask = torch.where(do_m2_grad_mask == 0, torch.ones_like(do_m2_grad_mask), optimal_param_mask)
 				optimal_transformed_param = net_sc3_weight.mul(final_optimal_param_mask)
-			###update weights in copied net
+		
 			copy_state_dict[name].copy_(optimal_transformed_param)
-			###update weights in net
+		
 			net_state_dict[name].copy_(optimal_transformed_param)
 
 		if epoch % 200 == 0: 
