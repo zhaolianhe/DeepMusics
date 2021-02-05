@@ -11,7 +11,6 @@ class DeepMultiOmics(nn.Module):
 		self.sc3 = nn.Linear(Hidden_Nodes, Out_Nodes, bias=False)
 		self.sc4 = nn.Linear(Out_Nodes+1, 1, bias = False)
 		self.sc4.weight.data.uniform_(-0.001, 0.001)
-		###randomly select a small sub-network
 		self.do_m1 = torch.ones(Pathway_Nodes)
 		self.do_m2 = torch.ones(Hidden_Nodes)
 		if torch.cuda.is_available():
@@ -28,8 +27,7 @@ class DeepMultiOmics(nn.Module):
 			x_1 = x_1.mul(self.do_m2)
 		x_1 = self.tanh(self.sc3(x_1))
 		x_cat = torch.cat((x_1, x_2), 1)
-		lin_pred = self.sc4(x_cat)
-		
+		lin_pred = self.sc4(x_cat)	
 		return lin_pred
 
 
