@@ -38,3 +38,7 @@ Train the model via the following:
 
     cd DeepMultiOmics
     python train.py 
+
+## Contact
+
+Please open an issue or contact zhaolianhe@ict.ac.cn with any questions.
