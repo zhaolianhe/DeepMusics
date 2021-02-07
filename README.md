@@ -30,7 +30,7 @@ The multi-omics data are preprocessed into three sets of matrixes.
 
 2.expression matrix
 
-3.methylations matrix 
+3.methylations matrix （cpG sites with gene sites coordinate information needed）
 
 The shapes for them are genes * samples, which are inputs of the model.
 
