@@ -20,6 +20,8 @@ To use DeepMultiOmics, do the following:
 
 Pathway prior knowledge information is from the Molecular Signatures Database MSigDB (http://www.gsea-msigdb.org/gsea/msigdb/index.jsp).
 
+cpG sites with gene symbol and coordinate information can be loaded from Illumina website or this link blow.   (http://www.bioconductor.org/packages/release/data/annotation/manuals/IlluminaHumanMethylation27k.db/man/IlluminaHumanMethylation27k.db.pdf)
+
 Mutations,expressions,methlations,clinical information of all cancer types are from TCGA Database(    https://portal.gdc.cancer.gov/).
 
 ## Model
