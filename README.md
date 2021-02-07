@@ -26,7 +26,7 @@ Mutations,expressions,methlations,clinical information of all cancer types are f
  
 The multi-omics data are preprocessed into three sets of matrixes.
 
-1.mutation matrix 
+1.mutation matrix （optional）
 
 2.expression matrix
 
