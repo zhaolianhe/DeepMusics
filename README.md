@@ -18,9 +18,9 @@ To use DeepMultiOmics, do the following:
 
 ## Data
 
-Pathway prior knowledge information is from the Molecular Signatures Database(MSigDB http://www.gsea-msigdb.org/gsea/msigdb/index.jsp).
+Pathway prior knowledge information is from the Molecular Signatures Database MSigDB (http://www.gsea-msigdb.org/gsea/msigdb/index.jsp).
 
-Mutations,expressions,methlations,clinical information of all cancer types are from TCGA Database(https://portal.gdc.cancer.gov/).
+Mutations,expressions,methlations,clinical information of all cancer types are from TCGA Database(    https://portal.gdc.cancer.gov/).
 
 ## Model
  
