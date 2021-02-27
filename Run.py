@@ -1,24 +1,21 @@
-from DataLoader import load_data, load_pathway
+from DataLoader import load_data, load_functional_modules
 from Train import trainDeepMusicsNet
-
 import torch
 import numpy as np
 
 torch.cuda.set_device(1)
 dtype = torch.FloatTensor
-''' Net Settings'''
 In_Nodes = 5000 ##gene nodes in need of change for users
 functional_Nodes = 800 ##functinal modules nodes in need of change for user
 Hidden_Nodes = 100 
 Out_Nodes = 30 
-''' Initialize '''
+
 Initial_Learning_Rate = [0.03, 0.01, 0.001, 0.00075]
 L2_Lambda = [0.1, 0.01, 0.005, 0.001]
 num_epochs = 4000 
 Num_EPOCHS = 30000 
 
 Dropout_Rate = [0.65, 0.45]
-''' load data and pathway '''
 functional_mask = load_functional_modules("~/functional_mask.csv", dtype)
 
 x_train, ytime_train, yevent_train, clinical_train = load_data("~/train.csv", dtype)
