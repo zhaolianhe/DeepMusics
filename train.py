@@ -1,4 +1,3 @@
-import dgl
 import DeepMultiOmics
 import torch
 import torch.optim as optim
@@ -7,28 +6,24 @@ from scipy.interpolate import interp1d
 import numpy as np
 import pandas as pd
 dtype = torch.FloatTensor
-
-def trainDeepMultiOmics(train_x, train_age, train_ytime, train_yevent, eval_x, eval_age, eval_ytime, eval_yevent, pathway_mask, In_Nodes, Pathway_Nodes, Hidden_Nodes, Out_Nodes, Learning_Rate, L2, Num_Epochs, Dropout_Rate):
+import dgl
+def trainDeepMultiOmics(train_x, train_clinical, train_ytime, train_yevent, eval_x, eval_clinical, eval_ytime, eval_yevent,functional_mask, In_Nodes, functional_Nodes, Hidden_Nodes, Out_Nodes, Learning_Rate, L2, Num_Epochs, Dropout_Rate):
 	
-	net = DeepMultiOmics(In_Nodes,Pathway_Nodes,Hidden_Nodes,Out_Nodes,pathway_mask)
+	net = DeepMultiOmics(In_Nodes,functional_Nodes,Hidden_Nodes,Out_Nodes,functional_mask)
 
 	if torch.cuda.is_available():
 		net.cuda()
-
 	opt = optim.Adam(net.parameters(), lr=Learning_Rate, weight_decay = L2)
-
 	for epoch in range(Num_Epochs+1):
 		net.train()
 		opt.zero_grad() 
-		net.do_m1 = dropout_mask(Pathway_Nodes, Dropout_Rate[0])
+		net.do_m1 = dropout_mask(functional_Nodes, Dropout_Rate[0])
 		net.do_m2 = dropout_mask(Hidden_Nodes, Dropout_Rate[1])
-
 		pred = net(train_x, train_age) ###Forward
 		loss = neg_par_log_likelihood(pred, train_ytime, train_yevent) ###calculate loss
 		loss.backward() 
 		opt.step()
-
-		net.sc1.weight.data = net.sc1.weight.data.mul(net.pathway_mask) ###force the connections between gene layer and pathway layer
+		net.sc1.weight.data = net.sc1.weight.data.mul(net.functional_mask) 
 
 		do_m1_grad = copy.deepcopy(net.sc2.weight._grad.data)
 		do_m2_grad = copy.deepcopy(net.sc3.weight._grad.data)
@@ -80,17 +75,16 @@ def trainDeepMultiOmics(train_x, train_age, train_ytime, train_yevent, eval_x, e
 				final_optimal_param_mask = torch.where(do_m2_grad_mask == 0, torch.ones_like(do_m2_grad_mask), optimal_param_mask)
 				optimal_transformed_param = net_sc3_weight.mul(final_optimal_param_mask)
 		
-			copy_state_dict[name].copy_(optimal_transformed_param)
-		
+			copy_state_dict[name].copy_(optimal_transformed_param)		
 			net_state_dict[name].copy_(optimal_transformed_param)
 
 		if epoch % 200 == 0: 
 			net.train()
-			train_pred = net(train_x, train_age)
+			train_pred = net(train_x, train_clinical)
 			train_loss = neg_par_log_likelihood(train_pred, train_ytime, train_yevent).view(1,).item()
 
 			net.eval()
-			eval_pred = net(eval_x, eval_age)
+			eval_pred = net(eval_x, eval_clinical)
 			eval_loss = neg_par_log_likelihood(eval_pred, eval_ytime, eval_yevent).view(1,)
 
 			train_cindex = c_index(train_pred, train_ytime, train_yevent)
