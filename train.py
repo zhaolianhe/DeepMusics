@@ -1,4 +1,4 @@
-import DeepMultiOmics
+import DeepMusics
 import torch
 import torch.optim as optim
 import copy
@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 dtype = torch.FloatTensor
 import dgl
-def trainDeepMultiOmics(train_x, train_clinical, train_ytime, train_yevent, eval_x, eval_clinical, eval_ytime, eval_yevent,functional_mask, In_Nodes, functional_Nodes, Hidden_Nodes, Out_Nodes, Learning_Rate, L2, Num_Epochs, Dropout_Rate):
+def trainDeepMusics(train_x, train_clinical, train_ytime, train_yevent, eval_x, eval_clinical, eval_ytime, eval_yevent,functional_mask, In_Nodes, functional_Nodes, Hidden_Nodes, Out_Nodes, Learning_Rate, L2, Num_Epochs, Dropout_Rate):
 	
 	net = DeepMultiOmics(In_Nodes,functional_Nodes,Hidden_Nodes,Out_Nodes,functional_mask)
 
