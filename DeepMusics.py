@@ -1,9 +1,9 @@
 import torch
 import torch.nn as nn
 
-class DeepMultiOmics(nn.Module):
+class DeepMusics(nn.Module):
 	def __init__(self, In_Nodes, Pathway_Nodes, Hidden_Nodes, Out_Nodes, Pathway_Mask):
-		super(DeepMultiOmics, self).__init__()
+		super(DeepMusics, self).__init__()
 		self.tanh = nn.Tanh()
 		self.pathway_mask = Pathway_Mask
 		self.sc1 = nn.Linear(In_Nodes, Pathway_Nodes)
