@@ -1,4 +1,4 @@
-# DeepMultiOmics
+# DeepMusics
   ![image](https://github.com/CancerProfiling/DeepMusics/blob/main/Figures/deepMusics.jpg)
   For any cancer type or subtype, it is difficult to see the whole landscape of molecular features with high dimensions and multiple sequencing data sources. 
 The Multi-Omics including mutations,expressions,methylations,clinical information and cancer pathway prior knowledge information.
