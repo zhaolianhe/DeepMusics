@@ -1,12 +1,9 @@
 # DeepMusics 
 
   ![image](https://github.com/CancerProfiling/DeepMusics/blob/main/Figures/deepMusics.jpg)
-  For any cancer type or subtype, it is difficult to see the whole landscape of molecular features with high dimensions and multiple sequencing data sources. 
-The Multi-Omics including mutations,expressions,methylations,clinical information and cancer pathway prior knowledge information.
-Our goal is to use deep learning method to fit embedding from all kinds of omics to analysis pan cancers in a general way.
-Here we use several common cancer types to show how the framework was built and tested.
-
-  Deep learning methods have been applied in bioinformatics because of their strong ability for capturing of nonlinear relationships, from their fitted trails and a flexible model design. 
+  
+  
+Multi-omics data, such as gene expression, methylation, mutation and copy number variation, can elucidates valuable insights of molecular mechanisms for various diseases. However, due to their different modalities and high dimension, utilizing and integrating different types of omics data suffers from great challenges. There is an urgent need to develop a powerful method to improve survival prediction and detect functional gene modules from multi-omics data to overcome these difficulties. In this paper, we developed DeepMusics, a flexible, scalable and interpretable method for extracting relationships between the clinical outcomes and multi-omics data based on deep learning framework. DeepMusics can efficiently implement non-linear combination and incorporate prior biological information defined by users (such as signalling pathway and tissue-specific functional gene modules) DeepMusics can be applied to different resolved-omics data and any type of clinical outcomes, including categorical (stages of subtypes) and continuous (survival time) ones. DeepMusics was evaluated on eight cancer datasets publicly available with four types of omics data and clinical data of survival time from TCGA project and compare its performance with other five cutting-edge prediction algorithms. In addition, the relevance of the information extracted when spiting the effect of various signatures and demonstrate the integration of activist of pathways estimated in a multi-omics context for the analysis of inter-cancer survival signalling.
 
 ## Install
 To use DeepMusics, do the following:
