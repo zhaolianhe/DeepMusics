@@ -39,7 +39,7 @@ The shapes for them are genes * samples, which are inputs of the model.
 
 Train the model via the following:
 
-    cd DeepMultiOmics
+    cd DeepMusics
     python train.py 
 
 ## Contact
