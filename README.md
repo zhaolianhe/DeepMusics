@@ -25,7 +25,7 @@ Mutations,expressions,methlations,copy number variation and clinical information
 
 ## Model
  
-The multi-omics data are preprocessed into three sets of matrixes.
+The multi-omics data are preprocessed into four sets of matrixes.
 
 1.mutation matrix 
 
